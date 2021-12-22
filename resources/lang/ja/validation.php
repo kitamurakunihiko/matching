@@ -105,6 +105,16 @@ return [
     */
  
     'attributes' => [
+      'name' => '代表者氏名',
+      'nickname' => '表示名',
+      'age' => '平均年齢',
+      'gender' => '性別',
+      'occupation' => '職業',
+      'prefectures' => '都道府県',
+      'alcohol' => 'お酒の強さ',
+      'count' => '希望人数',
+      'introduction' => 'グループ紹介欄',
+      'image_path' => '画像',
       'email' => 'メールアドレス',
       'password' => 'パスワード',
     ],

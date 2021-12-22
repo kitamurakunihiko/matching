@@ -12,4 +12,15 @@ class TopController extends Controller
     {
         return view('admin.top');
     }
+    
+    
+    public function create(Request $request) 
+    {
+        if (isset($request->id)) {
+          return view('admin.top');
+        } else {
+            return view('admin.profile.create');
+        }
+        
+    }
 }
