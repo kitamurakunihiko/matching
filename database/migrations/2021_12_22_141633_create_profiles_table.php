@@ -24,7 +24,6 @@ class CreateProfilesTable extends Migration
             $table->string('alcohol');
             $table->string('count');
             $table->string('introduction');
-            $table->string('image_path');
             $table->timestamps();
         });
     }

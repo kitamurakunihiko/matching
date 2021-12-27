@@ -161,7 +161,7 @@
             </div>
             <hr class="my-4">
       　　  　{{ csrf_field() }}
-            <button class="w-100 btn btn-primary btn-lg" type="submit">更新</button>
+            <button class="w-100 btn btn-primary btn-lg" type="submit">作成</button>
           </form>
         </div>
       </div>

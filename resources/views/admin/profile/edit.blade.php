@@ -1,13 +1,13 @@
 @extends('layouts.profile')
-@section('title', 'プロフィールの編集')
+@section('title', 'プロフィールの新規作成')
 
 @section('content')
 
-<div class="container">
+  <div class="container">
     <div class="py-5 text-center">
-      <h2>プロフィール編集</h2>
+      <h2>プロフィール新規作成</h2>
     </div>
-    <form action="{{ action('Admin\ProfileController@update') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ action('Admin\ProfileController@create') }}" method="post" enctype="multipart/form-data">
       @if (count($errors) > 0)
         <ul>
             @foreach($errors->all() as $e)
@@ -22,43 +22,42 @@
             <div class="row g-3">
               <div class="col-sm-6">
                 <label class="form-label">代表者氏名</label>
-                <input type="text" class="form-control" name="name" placeholder="" value="" required>
+                <input type="text" class="form-control" name="name" placeholder="" value="{{ $profile_form->name }}">
               </div>
               
               <div class="col-sm-6">
                 <label class="form-label">表示名</label>
-                  <input type="text" class="form-control" name="nickname" placeholder="" value="" required>
+                  <input type="text" class="form-control" name="nickname" placeholder="" value="{{ old('nickname') }}">
               </div>
               
               <div class="col-sm-12">
                 <label for="zip" class="form-label">平均年齢</label>
-                <input type="text" class="form-control" name="age" required>
+                <input type="text" class="form-control" name="age" value="{{ old('age') }}">
               </div>
               
               <div class="col-sm-12">
                 <label class="form-label">性別</label>
-                <select class="form-select" name="gender" required>
+                <select class="form-select" name="gender" value="{{ old('gender') }}">
                   <option value="">選択</option>
-                  <option>男</option>
-                  <option>女</option>
+                  <option value="1">男</option>
+                  <option value="0">女</option>
                 </select>
               </div>
               
               <div class="col-sm-12">
                 <label class="form-label">職業</label>
-                <select class="form-select" name="occupation" required>
+                <select class="form-select" name="occupation" value="{{ old('occupation') }}">
                   <option value="">選択</option>
                   <option>専門学生</option>
                   <option>大学生</option>
                   <option>無職</option>
-                  <option>フリーター</option>
                   <option>社会人</option>
                 </select>
               </div>
               
               <div class="col-sm-12">
                 <label class="form-label">都道府県</label>
-                <select class="form-select" name="prefectures" required>
+                <select class="form-select" name="prefectures" value="{{ old('prefectures') }}">
                   <option value="">選択</option>
                   <option value="北海道">北海道</option>
                   <option value="青森県">青森県</option>
@@ -113,18 +112,18 @@
               
               <div class="col-sm-12">
                 <label class="form-label">お酒の強さ</label>
-                <select class="form-select" name="alcohol" required>
+                <select class="form-select" name="alcohol" value="{{ old('alcohol') }}">
                   <option value="">選択</option>
-                  <option>好きで強い</option>
-                  <option>好きで弱い</option>
-                  <option>嫌いで強い</option>
-                  <option>嫌いで弱い</option>
+                  <option value="0">好きで強い</option>
+                  <option value="1">好きで弱い</option>
+                  <option value="2">嫌いで強い</option>
+                  <option value="3">嫌いで弱い</option>
                 </select>
               </div>
               
               <div class="col-sm-12">
                 <label class="form-label">希望人数</label>
-                <select class="form-select" name="count" required>
+                <select class="form-select" name="count" value="{{ old('count') }}">
                   <option value="">選択</option>
                   <option>2対2</option>
                   <option>3対3</option>
@@ -136,16 +135,36 @@
               <div class="col-sm-12">
                   <label class="form-label">グループ紹介欄</label>
                   <div class="col-sm-12">
-                    <textarea class="form-control" name="introduction" rows="20"></textarea>
+                    <textarea class="form-control" name="introduction" rows="20">{{ old('introduction') }}</textarea>
                   </div>
               </div>
+              
+              <div class="col">
+                  <label class="col-md-2">画像</label>
+                  <div class="col-md-10">
+                      <input type="file" class="form-control-file" id="image[]" name="image[]" accept="image/*" multiple="multiple">
+                  </div>
+                  <div class="col-md-10">
+                      <input type="file" class="form-control-file" id="image[]" name="image[]" accept="image/*" multiple="multiple">
+                  </div>
+                  <div class="col-md-10">
+                      <input type="file" class="form-control-file" id="image[]" name="image[]" accept="image/*" multiple="multiple">
+                  </div>
+                  <div class="col-md-10">
+                      <input type="file" class="form-control-file" id="image[]" name="image[]" accept="image/*" multiple="multiple">
+                  </div>
+                  <div class="col-md-10">
+                      <input type="file" class="form-control-file" id="image[]" name="image[]" accept="image/*" multiple="multiple">
+                  </div>
+                  
+              </div>
             </div>
-            
             <hr class="my-4">
-      
-            <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+      　　  　{{ csrf_field() }}
+            <button class="w-100 btn btn-primary btn-lg" type="submit">更新</button>
           </form>
         </div>
       </div>
     </form>
   </div>
+@endsection

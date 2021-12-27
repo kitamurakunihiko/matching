@@ -19,6 +19,5 @@ class Profile extends Model
         'alcohol' => 'required',
         'count' => 'required',
         'introduction' => 'required',
-        'image' => 'required|array',
     );
 }
