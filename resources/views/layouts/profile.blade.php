@@ -4,19 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token --> 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title')</title>
-
     <!-- Scripts -->
     <script src="{{ secure_asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-        
+    <!--Icon -->
+    <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
   </head>
@@ -28,11 +26,12 @@
           <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
           <span class="col fs-4">Cheer</span>
         </a>
+        
         <ul class="nav nav-pills">
-          <li class="nav-item"><a href="#" class="btn btn-default">ホーム</a></li>
-          <li class="nav-item"><a href="#" class="btn btn-default">プロフィール</a></li>
-          <li class="nav-item"><a href="#" class="btn btn-default">候補一覧</a></li>
-          <li class="nav-item"><a href="#" class="btn btn-default">マッチング一覧</a></li>
+          <li class="nav-item"><a href="#" class="btn btn-default"><i class="fas fa-home fa-2x"></i>ホーム</a></li>
+          <li class="nav-item"><a href="#" class="btn btn-default"><i class="fa fa-cog fa-2x"></i>プロフィール</a></li>
+          <li class="nav-item"><a href="#" class="btn btn-default"><i class="fas fa-users fa-2x"></i>候補一覧</a></li>
+          <li class="nav-item"><a href="#" class="btn btn-default"><i class="fas fa-heartbeat fa-2x"></i>マッチング一覧</a></li>
         </ul>
               
         <ul class="nav nav-pills">

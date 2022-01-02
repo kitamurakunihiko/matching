@@ -13,7 +13,7 @@
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     // 会員TOPページ
     Route::get('top', 'Admin\TopController@display');
-    Route::post('top', 'Admin\TopController@create');
+    // Route::post('top', 'Admin\TopController@create');
     
     Route::get('profile', 'Admin\ProfileController@index');
     Route::get('profile/create', 'Admin\ProfileController@add');
@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('profile/edit', 'Admin\ProfileController@update');
     Route::get('candidate', 'Admin\CandidateController@index');
     Route::get('candidate/detail', 'Admin\CandidateController@detail');
+    Route::get('candidate/imdex', 'Admin\CandidateController@index');
 });
 
 //TOPページ

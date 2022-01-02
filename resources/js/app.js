@@ -5,6 +5,8 @@
  */
 
 require('./bootstrap');
+// require('./jquery.candidate.js');
+// require('./jquery.transform2d');
 
 window.Vue = require('vue');
 

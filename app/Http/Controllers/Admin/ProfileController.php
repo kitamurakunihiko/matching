@@ -59,44 +59,19 @@ class ProfileController extends Controller
     public function edit(Request $request)
     {
         
-    $profile = Profile::find($request->id);
-        if (empty($profile)) {
-          abort(404);    
-        }
-        return view('admin.profile.edit', ['profile_form' => $profile]);
+      // $profile = Profile::find($request->id);
+      //   if (empty($profile)) {
+      //     abort(404);    
+      //   }
+      // return view('admin.profile.edit', ['profile_form' => $profile], ['profile_image_form' => $profile_image]);
     }
     
     public function update(Request $request)
     {
-      $this->validate($request, Profile::$rules);
-      $profile = Profile::find($request->id);
-      $profile_form = $request->all();
-      unset($profile_form['_token']);
-      $profile->fill($profile_form)->save();
-      
-      
-      $this->validate($request, Profile::$rules);
-      
-      $news = News::find($request->id);
-      
-      $news_form = $request->all();
-      if ($request->remove == 'true') {
-          $news_form['image_path'] = null;
-      } elseif ($request->file('image')) {
-          $path = $request->file('image')->store('public/image');
-          $news_form['image_path'] = basename($path);
-      } else {
-          $news_form['image_path'] = $news->image_path;
-      }
-
-      unset($news_form['image']);
-      unset($news_form['remove']);
-      unset($news_form['_token']);
-      // 該当するデータを上書きして保存する
-      $news->fill($news_form)->save();
-      return redirect('admin/news');
-        
-        
-        return view('admin/top');
+      // $this->validate($request, Profile::$rules, ProfileImage::$rules);
+      // $profile = Profile::find($request->id);
+      // $profile_form = $request->except('image[]');
+      // $profile_image = ProfileImage::find($request->profile_id);
+      // $profile_image_form = $request->file('image');
     }
 }

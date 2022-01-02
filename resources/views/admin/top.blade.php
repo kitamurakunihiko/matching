@@ -1,196 +1,73 @@
-会員TOPページ
-
 @extends('layouts.profile')
-@section('title', 'プロフィールの新規作成')
+@section('title', '会員ページ')
 
 @section('content')
 <body class="profile-page sidebar-collapse">
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="300">
-    <div class="container">
-      <div class="navbar-translate">
-        <a class="navbar-brand" href="https://demos.creative-tim.com/paper-kit/index.html" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom" target="_blank">
-          Paper Kit 2
-        </a>
-        <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-bar bar1"></span>
-          <span class="navbar-toggler-bar bar2"></span>
-          <span class="navbar-toggler-bar bar3"></span>
-        </button>
-      </div>
-      <div class="collapse navbar-collapse justify-content-end" id="navigation">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a href="../index.html" class="nav-link"><i class="nc-icon nc-layout-11"></i> Components</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://demos.creative-tim.com/paper-kit-2/docs/1.0/getting-started/introduction.html" target="_blank" class="nav-link"><i class="nc-icon nc-book-bookmark"></i> Documentation</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
-              <i class="fa fa-twitter"></i>
-              <p class="d-lg-none">Twitter</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
-              <i class="fa fa-facebook-square"></i>
-              <p class="d-lg-none">Facebook</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
-              <i class="fa fa-instagram"></i>
-              <p class="d-lg-none">Instagram</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Star on GitHub" data-placement="bottom" href="https://www.github.com/CreativeTimOfficial" target="_blank">
-              <i class="fa fa-github"></i>
-              <p class="d-lg-none">GitHub</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- End Navbar -->
   <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
     <div class="filter"></div>
   </div>
+  
   <div class="section profile-content">
     <div class="container">
-      <div class="owner">
-        <div class="avatar">
-          <img src="../assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-        </div>
-        <div class="name">
-          <h4 class="title">Jane Faker
-            <br />
-          </h4>
-          <h6 class="description">Music Producer</h6>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 ml-auto mr-auto text-center">
-          <p>An artist of considerable range, Jane Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+      <div class="name">
+        <h4 class="title text-center">表示名を表示
           <br />
-          <btn class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</btn>
-        </div>
+        </h4>
       </div>
-      <br/>
-      <div class="nav-tabs-navigation">
-        <div class="nav-tabs-wrapper">
-          <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#follows" role="tab">Follows</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#following" role="tab">Following</a>
-            </li>
-          </ul>
+      <!--<div class="card, text-center" style="width:300px;">-->
+      <div class="card, text-center">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
         </div>
-      </div>
-      <!-- Tab panes -->
-      <div class="tab-content following">
-        <div class="tab-pane active" id="follows" role="tabpanel">
-          <div class="row">
-            <div class="col-md-6 ml-auto mr-auto">
-              <ul class="list-unstyled follows">
-                <li>
-                  <div class="row">
-                    <div class="col-lg-2 col-md-4 col-4 ml-auto mr-auto">
-                      <img src="../assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                    </div>
-                    <div class="col-lg-7 col-md-4 col-4  ml-auto mr-auto">
-                      <h6>Flume
-                        <br/>
-                        <small>Musical Producer</small>
-                      </h6>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-4  ml-auto mr-auto">
-                      <div class="form-check">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" value="" checked>
-                          <span class="form-check-sign"></span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <hr />
-                <li>
-                  <div class="row">
-                    <div class="col-lg-2 col-md-4 col-4 mx-auto ">
-                      <img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                    </div>
-                    <div class="col-lg-7 col-md-4 col-4">
-                      <h6>Banks
-                        <br />
-                        <small>Singer</small>
-                      </h6>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-4">
-                      <div class="form-check">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" value="">
-                          <span class="form-check-sign"></span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="..." class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
           </div>
         </div>
-        <div class="tab-pane text-center" id="following" role="tabpanel">
-          <h3 class="text-muted">Not following anyone yet :(</h3>
-          <button class="btn btn-warning btn-round">Find artists</button>
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">前へ</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">次へ</span>
+        </button>
+      </div>
+      <br />
+      <div class="card-badge">
+        <span class="badge rounded-pill bg-danger text-light">職業</span>
+        <span class="badge rounded-pill bg-primary">都道府県</span>
+        <span class="badge rounded-pill bg-primary">お酒の強さ</span>
+        <span class="badge rounded-pill bg-primary">希望人数</span>
+        <br>
+      </div>
+      <div class="card-body col-md-8 ml-auto mr-auto text-center">
+        <h4 class="card-title">グループ紹介文</h4>
+        <p class="card-text">ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</p>
+        <btn class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> プロフィール編集</btn>
       </div>
     </div>
   </div>
-  <footer class="footer    ">
-    <div class="container">
-      <div class="row">
-        <nav class="footer-nav">
-          <ul>
-            <li>
-              <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>
-            </li>
-            <li>
-              <a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
-            </li>
-            <li>
-              <a href="https://www.creative-tim.com/license" target="_blank">Licenses</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="credits ml-auto">
-          <span class="copyright">
-            ©
-            <script>
-              document.write(new Date().getFullYear())
-            </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
-          </span>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!--   Core JS Files   -->
-  <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
-  <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
-  <script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-  <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-  <script src="../assets/js/plugins/bootstrap-switch.js"></script>
-  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-  <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-  <script src="../assets/js/plugins/moment.min.js"></script>
-  <script src="../assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
-  <!-- Control Center for Paper Kit: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/paper-kit.js?v=2.2.0" type="text/javascript"></script>
-  <!--  Google Maps Plugin    -->
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  
+  
 </body>
+
+</html>
+@endsection
