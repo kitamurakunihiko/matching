@@ -12,17 +12,18 @@
 */
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     // 会員TOPページ
-    Route::get('top', 'Admin\TopController@display');
-    // Route::post('top', 'Admin\TopController@create');
-    
+    Route::get('top1', 'Admin\TopController@display');
     Route::get('profile', 'Admin\ProfileController@index');
     Route::get('profile/create', 'Admin\ProfileController@add');
     Route::post('profile/create', 'Admin\ProfileController@create');
     Route::get('profile/edit', 'Admin\ProfileController@edit');
     Route::post('profile/edit', 'Admin\ProfileController@update');
     Route::get('candidate', 'Admin\CandidateController@index');
-    Route::get('candidate/detail', 'Admin\CandidateController@detail');
-    Route::get('candidate/imdex', 'Admin\CandidateController@index');
+    Route::get('candidate/detail', 'Admin\DetailController@detail');
+    Route::get('candidate/index', 'Admin\CandidateController@index');
+    Route::post('candidate/index', 'Admin\CandidateController@swipe');
+    Route::get('match/index', 'Admin\MatchController@index');
+    Route::get('match/chat', 'Admin\MatchController@chat');
 });
 
 //TOPページ

@@ -2,28 +2,25 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Profile;
 use App\ProfileImage;
+use App\Occupation;
 
 class TopController extends Controller
 {
-    //
-    // public function display(Request $request) 
-    // {
-    //   // $profile = Profile::find($request->id);
-    //   // $profile_image = ProfileImage::find($request->profile_id);
-      
-    //   // if (isset($profile)) {
-    //   //   return view('admin/top', ['profile_form' => $profile], ['profile_form' => $profile_image]);
-    //   // } else {
-    //   //     return view('admin/profile/create');
-    //   // }
-    // }
     
     public function display() 
     {
-      return view('admin/top');
+      
+      $profile = Auth::user()->profile;
+      
+      if (empty($profile->id)) {
+          return view('admin.profile.create');  
+        } else {
+          return view('admin.top1', ['profile' => $profile]);
+        }
     }
 }

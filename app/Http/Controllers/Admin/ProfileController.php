@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Profile;
 use App\ProfileImage;
+use App\Occupation;
+
 
 class ProfileController extends Controller
 {
@@ -13,8 +16,7 @@ class ProfileController extends Controller
     
     public function add()
     {
-        
-        return view('admin.profile.create');
+        return view('admin.profile.create',);
     } 
     
     
@@ -22,7 +24,7 @@ class ProfileController extends Controller
     {
         $this->validate($request, Profile::$rules, ProfileImage::$rules);
         $profile = new Profile;
-        $profile_image = new ProfileImage;
+        
         $form = $request->except('image[]');
         $form_images = $request->file('image');
         
@@ -30,48 +32,92 @@ class ProfileController extends Controller
         unset($form['image']);
         
         $profile->fill($form);
+        $profile->user_id = Auth::id();
         $profile->save();
-        // dump($form_images);
-        // return;
-        // $images = $form_image['image[]'];
         
         if (isset($form_images)) {
             foreach ($form_images as $form_image) {
+              $profile_image = new ProfileImage;
               $path = $form_image->store('public/image');
               $profile_image->image_path = basename($path);
               $profile_image->profile_id = $profile->id;
               $profile_image->save();
             }  
         } else {
-              $profile_image->image_path = false;
-        }
-        
-        if (count($form_images) == 0) {
-          $error[] = "画像が1つも設定されていません。";
+              $error[] = "画像が1つも設定されていません。";
           return redirect()->back()->withInput()->withErrors($error);
         }
         
         
-        return redirect('admin/top');
+        
+        
+        return redirect("admin/top1");
     }
         
     
     public function edit(Request $request)
     {
-        
-      // $profile = Profile::find($request->id);
-      //   if (empty($profile)) {
-      //     abort(404);    
-      //   }
-      // return view('admin.profile.edit', ['profile_form' => $profile], ['profile_image_form' => $profile_image]);
+      // $occupations = Occupation::all();
+      $profile = Auth::user()->profile;
+      
+        if (empty($profile)) {
+          return view('admin.profile.create');    
+        } else {
+          return view('admin.profile.edit', ['profile' => $profile]);
+        }
     }
+    
     
     public function update(Request $request)
     {
-      // $this->validate($request, Profile::$rules, ProfileImage::$rules);
-      // $profile = Profile::find($request->id);
-      // $profile_form = $request->except('image[]');
-      // $profile_image = ProfileImage::find($request->profile_id);
-      // $profile_image_form = $request->file('image');
+      
+      $this->validate($request, Profile::$rules, ProfileImage::$rules);
+      
+      $profile = Profile::find($request->id);
+      
+      $profile_form = $request->except('image');
+      $profile_images_form = $request->file('image');
+       
+      unset($profile_form['_token']);
+      // unset($profile_form['image']);
+      // dump($profile_form);
+      // return; 
+      $profile->fill($profile_form);
+      $profile->save();
+      
+      //profileからprofileimageを取得->そのレコードを削除。
+      Auth::user()->profile->profile_images()->delete();
+      //新しい投稿フォームを保存  
+      if (isset($profile_images_form)) {
+          foreach ($profile_images_form as $profile_image_form) {
+            $profile_image = new ProfileImage;
+            $path = $profile_image_form->store('public/image');
+            $profile_image->image_path = basename($path);
+            $profile_image->profile_id = $profile->id;
+            $profile_image->save();
+          }  
+      } else {
+            $error[] = "画像が1つも設定されていません。";
+            
+        return redirect()->back()->withInput()->withErrors($error);
+      }
+      
+      
+      
+      
+      return redirect("admin/top1");
+      
     }
+    
+    
+    public function delete(Request $request)
+    {
+      // 該当するNews Modelを取得
+      $news = News::find($request->id);
+      // 削除する
+      $news->delete();
+      return redirect('admin/news/');
+    }
+    
+    
 }

@@ -13,4 +13,9 @@ class ProfileImage extends Model
         'profile_id' => 'required',
         'image_path' => 'required',
     );
+    
+    public function profile()
+    {
+        return $this->belongsTo('App/Profile');
+    }
 }

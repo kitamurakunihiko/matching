@@ -1,62 +1,103 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="{{ app()->getLocale() }}">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSRF Token --> 
+	<head>
+  	<meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	
+  	 <!--CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>@yield('title')</title>
-    <!-- Scripts -->
-    <script src="{{ secure_asset('js/app.js') }}" defer></script>
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+      
+  	<title>@yield('title')</title>
+  	
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<meta name="description" content="Free HTML5 Website Template by freehtml5.co">
+  	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive">
+  	<meta name="author" content="freehtml5.co">
+  	 <!--<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">	 -->
+  	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+  	
+  	 <!--Animate.css -->
+  	<link rel="stylesheet" href="{{ asset('/css/animate.css') }}">
+  	 <!--Icomoon Icon Fonts-->
+  	<link rel="stylesheet" href="{{ asset('/css/icomoon.css') }}">
+  	 <!--Bootstrap  -->
+  	<link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">
+  	 <!--Flexslider  -->
+  	<link rel="stylesheet" href="{{ asset('/css/flexslider.css') }}">
+  	 <!--Theme style  -->
+  	<link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+  	 <!--Modernizr JS -->
+  	<script src="{{ asset('/js/modernizr-2.6.2.min.js') }}"></script>
+  	
+  	 <!--jQuery -->
+  	<script src="{{ asset('/js/jquery.min.js') }}"></script>
+  	 <!--jQuery Easing -->
+  	<script src="{{ asset('/js/jquery.easing.1.3.js') }}"></script>
+  	 <!--Bootstrap -->
+  	<script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+  	 <!--Waypoints -->
+  	<script src="{{ asset('/js/jquery.waypoints.min.js') }}"></script>
+  	 <!--Flexslider -->
+  	<script src="{{ asset('/js/jquery.flexslider-min.js') }}"></script>
+  	 <!--Magnific Popup -->
+  	{{--<script src="{{ asset('/js/jquery.magnific-popup.min.js') }}"></script>--}}
+  	{{--<script src="{{ asset('/js/magnific-popup-options.js') }}"></script>--}}
+    
+  	 <!--Main -->
+  	<script src="{{ asset('/js/main.js') }}"></script>
+  
     <!--Icon -->
     <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet">
-    <!-- Styles -->
-    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-  </head>
-
-　<body>
-    <div class="container">
-      <nav class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a href="/top" class="d-flex flex-row align-items-senter mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-          <span class="col fs-4">Cheer</span>
-        </a>
-        
-        <ul class="nav nav-pills">
-          <li class="nav-item"><a href="#" class="btn btn-default"><i class="fas fa-home fa-2x"></i>ホーム</a></li>
-          <li class="nav-item"><a href="#" class="btn btn-default"><i class="fa fa-cog fa-2x"></i>プロフィール</a></li>
-          <li class="nav-item"><a href="#" class="btn btn-default"><i class="fas fa-users fa-2x"></i>候補一覧</a></li>
-          <li class="nav-item"><a href="#" class="btn btn-default"><i class="fas fa-heartbeat fa-2x"></i>マッチング一覧</a></li>
-        </ul>
-              
-        <ul class="nav nav-pills">
-            @guest
-              <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-            {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
-            @else
-              <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                </a>
     
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                  </a>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                  </form>
-                </div>
-              </li>
-            @endguest
-        </ul>
-      </nav>
+	</head>
+	
+	<body>
+	<div class="fh5co-loader"></div>
+  	<div id="page">
+    	<nav class="fh5co-nav" role="navigation">
+    		<div class="top-menu">
+    			<div class="container">
+    				<div class="row">
+    					<div class="col-xs-2">
+    						<div id="fh5co-logo"><a href="index.html">Cheer<span>.</span></a></div>
+    					</div>
+    					<div class="col-xs-10 text-right menu-1">
+    						<ul>
+    							<li><a href="{{ action('Admin\TopController@display') }}", class="fas fa-home"> ホーム</a></li>
+    							<li><a href="{{ action('Admin\ProfileController@edit') }}", class="fa fa-cog"> プロフィール</a></li>
+    							<li><a href="{{ action('Admin\CandidateController@index') }}", class="fas fa-users"> 相手候補一覧</a></li>
+    							<li><a href="about.html", class="fas fa-heartbeat"> マッチ一覧</a></li>
+                  @guest
+                    <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                  {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
+                  @else
+                    <li class="nav-item dropdown">
+                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                              {{ Auth::user()->name }} <span class="caret"></span>
+                      </a>
+          
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}
+                        </a>
+          
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          @csrf
+                        </form>
+                      </div>
+                    </li>
+                  @endguest
+    						</ul>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</nav>
       
     　<main class="py-4">
         @yield('content')

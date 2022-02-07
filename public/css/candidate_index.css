@@ -75,8 +75,7 @@
   font-family: "Helvetica", sans-serif;
 }
 
-.tinfo .fa-users,
-.tinfo .fa-book {
+.tinfo .fa-users, .tinfo .fa-book {
   color: #c0c0c0;
   float: right;
   position: relative;
@@ -164,4 +163,3 @@
   font-family: "Helvetica", sans-serif;
   font-style: italic;
 }
-

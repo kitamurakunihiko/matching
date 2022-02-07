@@ -20,4 +20,22 @@ class Profile extends Model
         'count' => 'required',
         'introduction' => 'required',
     );
+    
+    public function profile_images()
+    {
+        return $this->hasMany('App\ProfileImage');
+
+    }
+    
+    public function swipes()
+    {
+        return $this->hasMany('App\Swipe');
+
+    }
+    
+    public function user()
+    {
+        return $this->belongsTo('App\Profile');
+
+    }
 }
