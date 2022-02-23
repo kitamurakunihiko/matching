@@ -1,4 +1,4 @@
-@extends('layouts.candidate_index')
+@extends('layouts.admin')
 @section('title', '候補相手一覧')
 
 @section('content')
@@ -22,7 +22,7 @@
               @if (count($candidate_user->profile_images) == 1)
                 <div>
                   @foreach ($candidate_user->profile_images as $index => $profile_image)
-                  <img src="{{ asset('storage/image/' . $profile_image->image_path) }}" class="d-block w-100 home-img" alt="...">
+                  <a href="{{ action('Admin\CandidateController@detail') }}"><img src="{{ asset('storage/image/' . $profile_image->image_path) }}" class="d-block w-100 home-img"></a>
                 　<div class="tname"></div>
                 　@endforeach
                 </div>
@@ -31,7 +31,7 @@
                   <div class="carousel-inner">
                     @foreach ($candidate_user->profile_images as $index => $profile_image)
                     <div class="carousel-item {{ $index==0 ? "active" : "" }}">
-                      <img src="{{ asset('storage/image/' . $profile_image->image_path) }}" class="d-block w-100 home-img" alt="...">
+                      <a href="{{ action('Admin\CandidateController@detail') }}"><img src="{{ asset('storage/image/' . $profile_image->image_path) }}" class="d-block w-100 home-img"></a>
                     　<div class="tname"></div>
                     </div>
                     @endforeach

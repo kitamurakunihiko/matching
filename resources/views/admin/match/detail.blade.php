@@ -1,12 +1,12 @@
 @extends('layouts.admin')
-@section('title', '会員ページ')
+@section('title', '候補相手詳細')
 
 @section('content')
 <div id="fh5co-contact">
 	<div class="container">
 		<div class="row animate-box">
 			<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-				<h3>{{ $profile->nickname }}({{ $profile->age }})</h3>
+				<h3>{{ $matched_user->nickname }}({{ $matched_user->age }})</h3>
 			</div>
 		</div>
 	</div>
@@ -15,10 +15,10 @@
 	  <div class="row">
 			<div class="col-md-10 col-md-push-1 animate-box">
 				<div class="row">
-				  @if ($profile->profile_images != NULL)
-            @if (count($profile->profile_images) == 1)
+				  @if ($matched_user->profile_images != NULL)
+            @if (count($matched_user->profile_images) == 1)
               <div>
-                @foreach ($profile->profile_images as $index => $profile_image)
+                @foreach ($matched_user->profile_images as $index => $profile_image)
                 <img src="{{ asset('storage/image/' . $profile_image->image_path) }}" class="d-block w-100 home-img" alt="...">
               　<div class="tname"></div>
               　@endforeach
@@ -26,7 +26,7 @@
             @else
               <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                  @foreach ($profile->profile_images as $index => $profile_image)
+                  @foreach ($matched_user->profile_images as $index => $profile_image)
                   <div class="carousel-item {{ $index==0 ? "active" : "" }}">
                     <img src="{{ asset('storage/image/' . $profile_image->image_path) }}" class="d-block w-100 home-img" alt="...">
                   　<div class="tname"></div>
@@ -47,10 +47,10 @@
           
           <div class="container col-md-12 col-md-push-1">
             <div class="card-badge">
-              <span class="badge rounded-pill bg-primary col">{{ config('occupation')[$profile->occupation] }}</span>
-              <span class="badge rounded-pill bg-primary col">{{ config('prefectures')[$profile->prefectures] }}</span>
-              <span class="badge rounded-pill bg-primary col">{{ config('alcohol')[$profile->alcohol] }}</span>
-              <span class="badge rounded-pill bg-primary col">{{ config('count')[$profile->count] }}</span>
+              <span class="badge rounded-pill bg-primary col">{{ config('occupation')[$matched_user->occupation] }}</span>
+              <span class="badge rounded-pill bg-primary col">{{ config('prefectures')[$matched_user->prefectures] }}</span>
+              <span class="badge rounded-pill bg-primary col">{{ config('alcohol')[$matched_user->alcohol] }}</span>
+              <span class="badge rounded-pill bg-primary col">{{ config('count')[$matched_user->count] }}</span>
             </div>
           </div>
           <br />
@@ -61,7 +61,7 @@
           			<div class="row">
                   <label class="form-label text-center">グループ紹介欄</label>
                   <div class="col-md-12">
-                    <textarea class="form-control" name="introduction" rows="12" readonly>{{ $profile->introduction }}</textarea>
+                    <textarea class="form-control" name="introduction" rows="12">{{ $matched_user->introduction }}</textarea>
                   </div>
                 </div>
               </div>
@@ -69,11 +69,7 @@
           </div>
         </div>  
           
-        <hr class="my-4">
-        　　  　{{ csrf_field() }}
-        <div align="center">
-          <a href="{{ action('Admin\ProfileController@edit', ['id' => $profile->id]) }}" class="w-100 btn btn-primary btn-lg">プロフィール編集</a>
-        </div>
+        
         
       </div>
     </div>

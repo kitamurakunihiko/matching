@@ -117,5 +117,6 @@ return [
       'image_path' => '画像',
       'email' => 'メールアドレス',
       'password' => 'パスワード',
+      'message' => 'メッセージ',
     ],
 ];

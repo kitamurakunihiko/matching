@@ -1,68 +1,83 @@
-@extends('layouts.candidate_index')
-@section('title', '相手候補詳細')
+@extends('layouts.admin')
+@section('title', '候補相手詳細')
 
 @section('content')
 <div id="fh5co-contact">
-    	<div class="container">
-    		<div class="row animate-box">
-    			<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-    				<h3>{{ $profile->nickname }}</h3>
-    			</div>
-    		</div>
-    	</div>
-  <!--<div class="card, text-center" style="width:300px;">-->
-  <div class="card, text-center">
-    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
-      <!--<div class="carousel-indicators">-->
-      <!--  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" aria-label="Slide 1"></button>-->
-      <!--  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>-->
-      <!--  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>-->
-      <!--  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>-->
-      <!--  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>-->
-      <!--</div> -->
-    
-      <div class="carousel-inner">
-        @if ($profile->profile_images != NULL)
-            @foreach ($profile->profile_images as $profile_image)
-                <div class="carousel-item active">
-                  <img src="{{ asset('storage/image/' . $profile_image->image_path) }}" class="d-block w-100" alt="...">
+	<div class="container">
+		<div class="row animate-box">
+			<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+				<h3>{{ $candidate_user->nickname }}({{ $candidate_user->age }})</h3>
+			</div>
+		</div>
+	</div>
+    	
+	<div class="container">
+	  <div class="row">
+			<div class="col-md-10 col-md-push-1 animate-box">
+				<div class="row">
+				  @if ($candidate_user->profile_images != NULL)
+            @if (count($candidate_user->profile_images) == 1)
+              <div>
+                @foreach ($candidate_user->profile_images as $index => $profile_image)
+                <img src="{{ asset('storage/image/' . $profile_image->image_path) }}" class="d-block w-100 home-img" alt="...">
+              　<div class="tname"></div>
+              　@endforeach
+              </div>
+            @else
+              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  @foreach ($candidate_user->profile_images as $index => $profile_image)
+                  <div class="carousel-item {{ $index==0 ? "active" : "" }}">
+                    <img src="{{ asset('storage/image/' . $profile_image->image_path) }}" class="d-block w-100 home-img" alt="...">
+                  　<div class="tname"></div>
+                  </div>
+                  @endforeach
                 </div>
-            @endforeach
-        @endif
-      </div>
-    
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">前へ</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">次へ</span>
-      </button>
-    </div>
-    <br />
-    
-    <div class="card-badge">
-      <span class="badge rounded-pill bg-primary">{{ $profile->occupation }}</span>
-      <span class="badge rounded-pill bg-primary">{{ $profile->prefectures }}</span>
-      <span class="badge rounded-pill bg-primary">{{ $profile->alcohol }}</span>
-      <span class="badge rounded-pill bg-primary">{{ $profile->count }}</span>
-      <br>
-    </div>
-    <br />
-  
-    <div class="container">
-  	  <div class="row">
-  			<div class="col-md-10 col-md-push-1">
-  				<div class="row">
-            <label class="form-label text-center">グループ紹介欄</label>
-            <div class="col-md-12">
-              <textarea class="form-control" name="introduction" rows="12">{{ $profile->introduction }}</textarea>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>  
+            @endif
+          @endif
+          
+          <div class="container col-md-12 col-md-push-1">
+            <div class="card-badge">
+              <span class="badge rounded-pill bg-primary col">{{ config('occupation')[$candidate_user->occupation] }}</span>
+              <span class="badge rounded-pill bg-primary col">{{ config('prefectures')[$candidate_user->prefectures] }}</span>
+              <span class="badge rounded-pill bg-primary col">{{ config('alcohol')[$candidate_user->alcohol] }}</span>
+              <span class="badge rounded-pill bg-primary col">{{ config('count')[$candidate_user->count] }}</span>
             </div>
           </div>
-        </div>
+          <br />
+          
+          <div class="container">
+            <div class="row">
+          		<div class="col-md-10 col-md-push-1">
+          			<div class="row">
+                  <label class="form-label text-center">グループ紹介欄</label>
+                  <div class="col-md-12">
+                    <textarea class="form-control" name="introduction" rows="12">{{ $candidate_user->introduction }}</textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  
+          
+        
+        
       </div>
     </div>
-  </div>
+  </div>  
+
 </div>
 @endsection
+      
+              
+      
+  

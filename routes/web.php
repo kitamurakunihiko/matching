@@ -18,12 +18,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('profile/create', 'Admin\ProfileController@create');
     Route::get('profile/edit', 'Admin\ProfileController@edit');
     Route::post('profile/edit', 'Admin\ProfileController@update');
-    Route::get('candidate', 'Admin\CandidateController@index');
-    Route::get('candidate/detail', 'Admin\DetailController@detail');
+    Route::get('candidate/detail', 'Admin\CandidateController@detail');
     Route::get('candidate/index', 'Admin\CandidateController@index');
     Route::post('candidate/index', 'Admin\CandidateController@swipe');
     Route::get('match/index', 'Admin\MatchController@index');
-    Route::get('match/chat', 'Admin\MatchController@chat');
+    Route::get('match/chat', 'Admin\MatchController@show');
+    Route::post('match/chat', 'Admin\MatchController@chat');
+    Route::get('match/detail', 'Admin\MatchController@detail');
 });
 
 //TOPページ
