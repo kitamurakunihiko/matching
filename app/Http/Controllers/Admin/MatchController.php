@@ -37,14 +37,6 @@ class MatchController extends Controller
       //requestから来たidを$recieveへ代入する(chat画面でのMessage Modelのrecieveに保存する為)
       $recieve = $request->id;
       
-      //自分がマッチした相手を取得する
-      // $query = Swipe::query();
-      // $query->Swipe::where('to_user_id', $recieve);
-      // $query->Swipe::where('from_user_id' , Auth::user()->profile->id);
-      // $query->Swipe::where('is_like', true);
-      // $query->with('profile');
-      // $matched_user = $query->first();
-      
       $matched_user = Swipe::where('to_user_id', $recieve)
                ->where('from_user_id' , Auth::user()->profile->id)
                ->where('is_like', true)

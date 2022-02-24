@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Profile;
 use App\ProfileImage;
-use App\Occupation;
+use Storage;
 
 
 class ProfileController extends Controller
@@ -38,8 +38,9 @@ class ProfileController extends Controller
         if (isset($form_images)) {
             foreach ($form_images as $form_image) {
               $profile_image = new ProfileImage;
-              $path = $form_image->store('public/image');
-              $profile_image->image_path = basename($path);
+              // $path = $form_image->store('public/image');
+              $path = Storage::disk('s3')->putFile('/',$form_image,'public');
+              $profile_image->image_path = Storage::disk('s3')->url($path);
               $profile_image->profile_id = $profile->id;
               $profile_image->save();
             }  
@@ -91,8 +92,8 @@ class ProfileController extends Controller
       if (isset($profile_images_form)) {
           foreach ($profile_images_form as $profile_image_form) {
             $profile_image = new ProfileImage;
-            $path = $profile_image_form->store('public/image');
-            $profile_image->image_path = basename($path);
+            $path = Storage::disk('s3')->putFile('/',$profile_image_form,'public');
+            $profile_image->image_path = Storage::disk('s3')->url($path);
             $profile_image->profile_id = $profile->id;
             $profile_image->save();
           }  

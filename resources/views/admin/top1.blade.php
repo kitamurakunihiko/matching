@@ -10,7 +10,7 @@
 			</div>
 		</div>
 	</div>
-    	
+	
 	<div class="container">
 	  <div class="row">
 			<div class="col-md-10 col-md-push-1 animate-box">
@@ -19,7 +19,7 @@
             @if (count($profile->profile_images) == 1)
               <div>
                 @foreach ($profile->profile_images as $index => $profile_image)
-                <img src="{{ asset('storage/image/' . $profile_image->image_path) }}" class="d-block w-100 home-img" alt="...">
+                <img src="{{ $profile_image->image_path }}" class="d-block w-100 home-img" alt="...">
               　<div class="tname"></div>
               　@endforeach
               </div>
@@ -28,7 +28,7 @@
                 <div class="carousel-inner">
                   @foreach ($profile->profile_images as $index => $profile_image)
                   <div class="carousel-item {{ $index==0 ? "active" : "" }}">
-                    <img src="{{ asset('storage/image/' . $profile_image->image_path) }}" class="d-block w-100 home-img" alt="...">
+                    <img src="{{ $profile_image->image_path }}" class="d-block w-100 home-img" alt="...">
                   　<div class="tname"></div>
                   </div>
                   @endforeach
