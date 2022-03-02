@@ -88,7 +88,7 @@
 						<div class="col-md-12">
               <label class="form-label">グループ紹介欄</label>
               <div class="col-md-12">
-                <textarea class="form-control" name="introduction" rows="20">{{ $profile->introduction }}</textarea>
+                <textarea class="form-control" name="introduction" rows="20">{!!nl2br($profile->introduction)!!}</textarea>
               </div>
             </div>
             

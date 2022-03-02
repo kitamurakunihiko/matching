@@ -22,18 +22,18 @@
 				<div class="col-md-10 col-md-push-1 animate-box">
 					<div class="row">
 						<div class="col-md-6">
-							<label class="form-label">代表者氏名</label>
-              <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+							<label class="form-label">氏名(幹事)</label>
+              <input type="text" placeholder="例)山田太郎" class="form-control" name="name" value="{{ old('name') }}">
 						</div>
 						
 						<div class="col-md-6">
-							<label class="form-label">表示名(ニックネーム)</label>
-              <input type="text" class="form-control" name="nickname" value="{{ old('nickname') }}">
+							<label class="form-label">グループ名</label>
+              <input type="text" placeholder="例)テニスサークル" class="form-control" name="nickname" value="{{ old('nickname') }}">
 						</div>
 						
 						<div class="col-md-6">
-							<label for="zip" class="form-label">メンバー平均年齢</label>
-              <input type="text" class="form-control" name="age" value="{{ old('age') }}">
+							<label for="zip" class="form-label">メンバーAge</label>
+              <input type="text" placeholder="例)21~23歳" class="form-control" name="age" value="{{ old('age') }}">
 						</div>
 						
 						<div class="col-md-6">
@@ -46,7 +46,7 @@
 						</div>
 						
 						<div class="col-md-6">
-							<label for="zip" class="form-label">代表者職業</label>
+							<label for="zip" class="form-label">職業(幹事)</label>
               <select class="form-control" name="occupation">
                 @foreach(config('occupation') as $occupation => $name)
                   <option value="{{ $occupation }}" {{ old('occupation') === $occupation ? "selected" : ""}}>{{ $name }}</option>
@@ -81,11 +81,25 @@
                 @endforeach
               </select>
             </div>
+            
+            <!--<div class="col-md-6">-->
+            <!--  <label class="form-label">グループタイプ</label>-->
+            <!--  <select class="form-control" name="mood">-->
+            <!--    @foreach(config('occupation') as $count => $name)-->
+            <!--      <option value="{{ $count }}" {{ old('count') === $count ? "selected" : ""}}>{{ $name }}</option>-->
+            <!--    @endforeach-->
+            <!--  </select>-->
+            <!--</div>-->
+            
+            <!--<div class="col-md-6">-->
+            <!--  <label class="form-label">ひとこと</label>-->
+            <!--  <input type="text" class="form-control" name="word" value="{{ old('word') }}">-->
+            <!--</div>-->
 						
 						<div class="col-md-12">
               <label class="form-label">グループ紹介欄</label>
               <div class="col-md-12">
-                <textarea class="form-control" name="introduction" rows="20">{{ old('introduction') }}</textarea>
+                <textarea class="form-control" placeholder="" name="introduction" rows="20">{{ old('introduction') }}</textarea>
               </div>
             </div>
             
