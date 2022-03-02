@@ -13,15 +13,7 @@ class ChengePlofilesTableAdd2columns extends Migration
      */
     public function up()
     {
-        Schema::table('profiles', function (Blueprint $table) {
-            //
-            $table->string('mood')->after('count');
-        });
         
-        Schema::table('profiles', function (Blueprint $table) {
-            //
-            $table->text('word')->nullable()->after('count');
-        });
     }
 
     /**
@@ -31,14 +23,6 @@ class ChengePlofilesTableAdd2columns extends Migration
      */
     public function down()
     {
-        Schema::table('profiles', function (Blueprint $table) {
-            //
-            $table->dropColumn('mood');
-        });
         
-        Schema::table('profiles', function (Blueprint $table) {
-            //
-            $table->dropColumn('word');
-        });
     }
 }
