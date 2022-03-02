@@ -29,7 +29,7 @@
     			        @if (count($matched_user->profile->profile_images) == 1)
                     @foreach ($matched_user->profile->profile_images as $index => $profile_image)
                       <div>
-                        <img src="{{ asset('storage/image/' . $profile_image->image_path) }}" class="rounded-circle">
+                        <img src="{{ $profile_image->image_path }}" class="rounded-circle">
                       　<a href="{{ action('Admin\MatchController@detail', ['id' => $matched_user->profile->id]) }}" class="stretched-link ml-3" style="font-size: 16px">
                       　  {{ $matched_user->profile->nickname }}
                       　</a>
@@ -40,7 +40,7 @@
                     <div class="carousel-inner">
                       @foreach($matched_user->profile->profile_images as $index => $profile_image)
                         <div class="carousel-item {{ $index==0 ? "active" : "" }}">
-                          <img src="{{ asset('storage/image/' . $profile_image->image_path) }}" class="rounded-circle">
+                          <img src="{{ $profile_image->image_path }}" class="rounded-circle">
                         　<a href="{{ action('Admin\MatchController@detail', ['id' => $matched_user->profile->id]) }}" class="stretched-link ml-3" style="font-size: 16px">
                         　  {{ $matched_user->profile->nickname }}
                         　</a>

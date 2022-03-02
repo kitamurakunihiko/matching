@@ -21,7 +21,7 @@ body {
 
 #page {
   position: relative;
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
   width: 100%;
   height: 100%;
   -webkit-transition: 0.5s;
@@ -86,9 +86,15 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .fh5co-nav {
   background: #fff;
+  /*width: 200px;*/
+  /*padding: 10px;*/
+  /*margin: 20px;*/
+  /*border: 10px outset #ff1493;*/
 }
 .fh5co-nav .top-menu {
-  padding: 28px 0;
+  padding: 28px 0 0 0;
+  box-shadow: 0 .15rem .5rem rgba(0,0,0,.9);
+  /*box-shadow: 0 .15rem .5rem rgba(221,53,110,.075);*/
 }
 .fh5co-nav #fh5co-logo {
   font-size: 32px;
@@ -130,7 +136,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-nav ul li a {
   font-size: 18px;
-  padding: 30px 15px;
+  padding: 15px 15px;
   color: rgba(0, 0, 0, 0.7);
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
@@ -626,7 +632,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-content-section,
 #fh5co-contact,
 #fh5co-footer {
-  padding: 7em 0;
+  padding: 3em 0 7em 0;
   clear: both;
 }
 @media screen and (max-width: 960px) {
@@ -1489,5 +1495,4 @@ input[type="text"] {
 .js .animate-box {
   opacity: 0;
 }
-
 /*# sourceMappingURL=style.css.map */
