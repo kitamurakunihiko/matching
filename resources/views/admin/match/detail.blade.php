@@ -19,7 +19,7 @@
             @if (count($matched_user->profile_images) == 1)
               <div>
                 @foreach ($matched_user->profile_images as $index => $profile_image)
-                <img src="{{ $profile_image->image_path) }}" class="d-block w-100 home-img" alt="...">
+                <img src="{{ $profile_image->image_path }}" class="d-block w-100 home-img" alt="...">
               　<div class="tname"></div>
               　@endforeach
               </div>
@@ -28,7 +28,7 @@
                 <div class="carousel-inner">
                   @foreach ($matched_user->profile_images as $index => $profile_image)
                   <div class="carousel-item {{ $index==0 ? "active" : "" }}">
-                    <img src="{{ $profile_image->image_path) }}" class="d-block w-100 home-img" alt="...">
+                    <img src="{{ $profile_image->image_path }}" class="d-block w-100 home-img" alt="...">
                   　<div class="tname"></div>
                   </div>
                   @endforeach
