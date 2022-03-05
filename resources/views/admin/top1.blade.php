@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('title', '会員ページ')
 
+
 @section('content')
 <div id="fh5co-contact">
 	<div class="container">
