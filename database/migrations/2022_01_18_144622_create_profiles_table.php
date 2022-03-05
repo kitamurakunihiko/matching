@@ -24,8 +24,6 @@ class CreateProfilesTable extends Migration
             $table->string('prefectures');
             $table->string('alcohol');
             $table->string('count');
-            $table->string('mood');
-            $table->string('word');
             $table->string('introduction');
             $table->timestamps();
         });
