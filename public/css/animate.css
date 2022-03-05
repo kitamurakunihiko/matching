@@ -3595,5 +3595,8 @@ svg {
   margin: 0 auto;
 }
 
-
+.offcanvas {
+  position: static !important;
+  visibility: visible !important;
+}
 /* ---------- top display ---------- */
