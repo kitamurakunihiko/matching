@@ -19,16 +19,16 @@
             @if (count($candidate_user->profile_images) == 1)
               <div>
                 @foreach ($candidate_user->profile_images as $index => $profile_image)
-                <img src="{{ asset('storage/image/' . $profile_image->image_path) }}" class="d-block w-100 home-img" alt="...">
+                <img src="{{ $profile_image->image_path }}" class="d-block w-100 home-img" alt="...">
               　<div class="tname"></div>
               　@endforeach
               </div>
             @else
-              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+              <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                   @foreach ($candidate_user->profile_images as $index => $profile_image)
                   <div class="carousel-item {{ $index==0 ? "active" : "" }}">
-                    <img src="{{ asset('storage/image/' . $profile_image->image_path) }}" class="d-block w-100 home-img" alt="...">
+                    <img src="{{ $profile_image->image_path }}" class="d-block w-100 home-img" alt="...">
                   　<div class="tname"></div>
                   </div>
                   @endforeach
@@ -61,7 +61,7 @@
           			<div class="row">
                   <label class="form-label text-center">グループ紹介欄</label>
                   <div class="col-md-12">
-                    <textarea class="form-control" name="introduction" rows="12">{{ $candidate_user->introduction }}</textarea>
+                    <textarea class="form-control" name="introduction" rows="12" readonly>{{ $candidate_user->introduction }}</textarea>
                   </div>
                 </div>
               </div>

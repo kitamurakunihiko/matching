@@ -3383,7 +3383,7 @@ Copyright (c) 2015 Daniel Eden
   
   overflow: hidden;
   max-width: 400px;
-  margin: 20px auto;
+  margin: auto;
   font-size: 80%;
 }
 
@@ -3398,6 +3398,12 @@ Copyright (c) 2015 Daniel Eden
 .chat-container .scroll {
   height: 500px;
   overflow-y: scroll;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #474747;
+  background: #ffff;/*背景色*/
+  border-left: double 7px #DD356E;/*左線#fee856*/
+  border-right: double 7px #DD356E;/*右線#FFFFE0*/
 }
 
 .chat-container .chat-left {
@@ -3413,7 +3419,7 @@ Copyright (c) 2015 Daniel Eden
 .chat-container .chat-left .text {
   padding: 10px;
   border-radius: 20px;
-  background-color: #c8c8c8;
+  background-color: #FFFFCC;
   margin: 0;
   margin-right: 80px;
 }
@@ -3426,7 +3432,7 @@ Copyright (c) 2015 Daniel Eden
   height: 0;
   left: -10px;
   top: 10px;
-  border-right: 20px solid #c8c8c8;
+  border-right: 20px solid #FFFFCC;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
 }
@@ -3444,7 +3450,7 @@ Copyright (c) 2015 Daniel Eden
 .chat-container .chat-right .text {
   padding: 10px;
   border-radius: 20px;
-  background-color: #8de055;
+  background-color: #FF97C2;
   margin: 0;
   margin-left: 80px;
 }
@@ -3457,7 +3463,7 @@ Copyright (c) 2015 Daniel Eden
   height: 0;
   right: -10px;
   top: 10px;
-  border-left: 20px solid #8de055;
+  border-left: 20px solid #FF97C2;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
 }
@@ -3599,4 +3605,28 @@ svg {
   position: static !important;
   visibility: visible !important;
 }
+
+.ng-evaluation {
+  display: inline-block;
+  text-align: center;
+}
+
+.ok-evaluation {
+  color: #5de19c;
+  display: inline-block;
+  text-align: center;
+}
+
+.tno i {
+  font-size: 65px !important;
+}
+
+.position {
+  text-align: center;
+}
+
+.accordion-button:after {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+}
+
 /* ---------- top display ---------- */

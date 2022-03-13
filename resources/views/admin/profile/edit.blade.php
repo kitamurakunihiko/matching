@@ -24,17 +24,17 @@
 				<div class="col-md-10 col-md-push-1 animate-box">
 					<div class="row">
 						<div class="col-md-6">
-							<label class="form-label">代表者氏名</label>
+							<label class="form-label">氏名(幹事)</label>
               <input type="text" class="form-control" name="name" placeholder="" value="{{ $profile->name }}">
 						</div>
 						
 						<div class="col-md-6">
-							<label class="form-label">表示名(ニックネーム)</label>
+							<label class="form-label">グループ名(表示名)</label>
               <input type="text" class="form-control" name="nickname" placeholder="" value="{{ $profile->nickname }}">
 						</div>
 						
 						<div class="col-md-6">
-							<label for="zip" class="form-label">メンバー平均年齢</label>
+							<label for="zip" class="form-label">メンバーAge</label>
               <input type="text" class="form-control" name="age" value="{{ $profile->age }}">
 						</div>
 						
@@ -48,7 +48,7 @@
 						</div>
 						
 						<div class="col-md-6">
-							<label for="zip" class="form-label">代表者職業</label>
+							<label for="zip" class="form-label">職業(幹事)</label>
               <select class="form-control" name="occupation">
                 @foreach(config('occupation') as $occupation => $name)
                   <option value="{{ $occupation }}" @if($profile->occupation==$occupation) selected @endif {{ old('_occupation') === $occupation ? "selected" : ""}}>{{ $name }}</option>
@@ -87,13 +87,11 @@
 						
 						<div class="col-md-12">
               <label class="form-label">グループ紹介欄</label>
-              <div class="col-md-12">
-                <textarea class="form-control" name="introduction" rows="20">{{ $profile->introduction }}</textarea>
-              </div>
+              <textarea class="form-control" name="introduction" rows="20">{{ $profile->introduction }}</textarea>
             </div>
             
             <div class="col">
-              <label class="col-md-12">画像</label>
+              <label class="col-md-12">画像(※画像は当日参加者を投稿してね&#128248)</label>
                 <div class="form-text text-info">
                     @foreach ($profile->profile_images as $profile_image)
                     設定中画像:  {{ $profile_image->image_path }}<br>

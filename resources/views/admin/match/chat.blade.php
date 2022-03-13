@@ -16,12 +16,10 @@
 			<div class="col-md-10 col-md-push-1 animate-box">
 				<div class="row">
           <div class="chat-container">
-            <!-- タイトル -->
-            <div class="chat-user">
+            <div>
               {{ $recieve->nickname }}
             </div>
-      
-            <div class="chat-contents scroll">  
+            <div class="chat-contents scroll"> 
               @foreach($messages as $key => $message)
               　<!--送信したメッセージを表示-->
                 <div class="chat-right">
@@ -51,9 +49,9 @@
               </ul>
             @endif
             {{ csrf_field() }}
-            <textarea name="message" style="width:100%"></textarea>
+            <textarea name="message" style="width:100%" placeholder="メッセージを送ろう！"></textarea>
             <input type="hidden" name="recieve" value="{{ $recieve->id }}">
-            <button type="submit">送信</button>
+            <button class="btn btn-primary btn-lg" type="submit">送信</button>
           </form>
         </div>
       </div>

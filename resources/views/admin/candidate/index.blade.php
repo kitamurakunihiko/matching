@@ -27,7 +27,7 @@
                 　@endforeach
                 </div>
               @else
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
                   <div class="carousel-inner">
                     @foreach ($candidate_user->profile_images as $index => $profile_image)
                     <div class="carousel-item {{ $index==0 ? "active" : "" }}">
@@ -59,31 +59,34 @@
             <br />
     
             <div class="tcontrols">
-              <div class="container">
+
                 <div class="row ">
-                  <div class="col-md-6 mb-1">
+                  <div class="col-xs-6 col-6 mb-1 position">
                   　<form class="form_button" action="{{ action('Admin\CandidateController@swipe') }}" method="post" enctype="multipart/form-data">
                       @csrf
                       <input type='hidden' name='to_user_id' value='{{ $candidate_user->id }}'>
                       <input type='hidden' name='is_like' value='0'>
                       <button class="tno" type="submit">
                         <i class="fa fa-times" aria-hidden="true"></i>
+                        <a class='ng-evaluation'>また今度</a>
                       </button>
                     </form>
+                    
                   </div>
                     
-                  <div class="col-md-6 mb-1">
+                  <div class="col-xs-6 col-6 mb-1 position">
                     <form class="form_button" action="{{ action('Admin\CandidateController@swipe') }}" method="post" enctype="multipart/form-data">
                       @csrf
                       <input type='hidden' name='to_user_id' value='{{ $candidate_user->id }}'>
                       <input type='hidden' name='is_like' value='1'>
                       <button class="tyes" type="submit">
                         <i class="fa fa-heart" aria-hidden="true"></i>
+                        <a class='ok-evaluation'>会いたい</a>
                       </button>
                     </form>
                   </div>
                 </div>
-              </div>
+              
             </div>
           </div>
         </div>

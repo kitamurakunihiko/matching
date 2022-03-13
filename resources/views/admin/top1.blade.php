@@ -24,7 +24,7 @@
               　@endforeach
               </div>
             @else
-              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+              <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                   @foreach ($profile->profile_images as $index => $profile_image)
                   <div class="carousel-item {{ $index==0 ? "active" : "" }}">

@@ -29,11 +29,8 @@ class MatchController extends Controller
     
     public function show(Request $request) 
     {
-      //自分がマッチした相手との、送・受信のmessageを取得する
-      
       //自分のidを取得
       $send = Auth::user()->profile->id;
-      
       //requestから来たidを$recieveへ代入する(chat画面でのMessage Modelのrecieveに保存する為)
       $recieve = $request->id;
       

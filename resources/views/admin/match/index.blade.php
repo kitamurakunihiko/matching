@@ -56,7 +56,7 @@
                 </td>
                 <td class="match-menu">
                   <a href="{{ action('Admin\MatchController@show', ['id' => $matched_user->profile->id]) }}">
-                    <button type="button" class="btn btn-primary">Chat</button>
+                    <button type="button" class="btn btn-primary">Chatをする</button>
                   </a>
                 </td>
               </tr>

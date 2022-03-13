@@ -27,8 +27,8 @@
 						</div>
 						
 						<div class="col-md-6">
-							<label class="form-label">グループ名</label>
-              <input type="text" placeholder="例)テニスサークル" class="form-control" name="nickname" value="{{ old('nickname') }}">
+							<label class="form-label">グループ名(表示名)</label>
+              <input type="text" placeholder="例)お肉大好き、港区女子" class="form-control" name="nickname" value="{{ old('nickname') }}">
 						</div>
 						
 						<div class="col-md-6">
@@ -98,13 +98,11 @@
 						
 						<div class="col-md-12">
               <label class="form-label">グループ紹介欄</label>
-              <div class="col-md-12">
-                <textarea class="form-control" placeholder="" name="introduction" rows="20">{{ old('introduction') }}</textarea>
-              </div>
+              <textarea class="form-control" placeholder="" name="introduction" rows="20">{{ old('introduction') }}</textarea>
             </div>
             
             <div class="col">
-              <label class="col-md-12">画像</label>
+              <label class="col-md-12">画像(※画像は当日参加者を投稿してね&#128248)</label>
               <div class="col-md-10">
                   <input type="file" class="form-control-file" value="{{ old('image.0') }}" name="image[]" accept="image/*" multiple="multiple">
               </div>
