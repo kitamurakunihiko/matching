@@ -25,6 +25,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('match/chat', 'Admin\MatchController@show');
     Route::post('match/chat', 'Admin\MatchController@chat');
     Route::get('match/detail', 'Admin\MatchController@detail');
+    Route::get('restaurant/index', 'Admin\RestaurantController@index');
+    Route::post('restaurant/index', 'Admin\RestaurantController@search');
 });
 
 //TOPページ

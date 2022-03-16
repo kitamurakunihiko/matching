@@ -882,8 +882,9 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-portfolio .portfolio-text {
   width: 100%;
+  height: 100px !important;
   float: left;
-  padding: 20px;
+  padding: 10px;
 }
 .fh5co-portfolio .portfolio-text .stuff {
   margin: 0;

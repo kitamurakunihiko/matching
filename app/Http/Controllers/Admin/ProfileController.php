@@ -49,9 +49,6 @@ class ProfileController extends Controller
           return redirect()->back()->withInput()->withErrors($error);
         }
         
-        
-        
-        
         return redirect("admin/top1");
     }
         
@@ -103,11 +100,7 @@ class ProfileController extends Controller
         return redirect()->back()->withInput()->withErrors($error);
       }
       
-      
-      
-      
       return redirect("admin/top1");
-      
     }
     
     

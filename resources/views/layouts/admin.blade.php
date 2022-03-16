@@ -59,15 +59,16 @@
     		<div class="top-menu">
     			<div class="container">
     				<div class="row">
-    					<div class="col-xs-2 col-md-2">
+    					<div class="col-xs-1 col-md-1">
     						<div id="fh5co-logo"><a href="/">Cheers<span>.</span></a></div>
     					</div>
-    					<div class="col-xs-10 col-md-10 text-right menu-1">
+    					<div class="col-xs-11 col-md-11 text-right menu-1">
     						<ul>
     							<li><a href="{{ action('Admin\TopController@display') }}", class="fas fa-home"> ホーム</a></li>
     							<li><a href="{{ action('Admin\ProfileController@edit') }}", class="fa fa-cog"> プロフィール</a></li>
     							<li><a href="{{ action('Admin\CandidateController@index') }}", class="fas fa-users"> 相手を探す</a></li>
     							<li><a href="{{ action('Admin\MatchController@index') }}", class="fas fa-heartbeat"> マッチ一覧</a></li>
+    							<li><a href="{{ action('Admin\RestaurantController@index') }}", class="fas fa-utensils"> お店を探す</a></li>
                   @guest
                     <li class="btn-cta"><a class="nav-link " href="{{ route('login') }}">{{ __('Login') }}</a></li>
                   {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}

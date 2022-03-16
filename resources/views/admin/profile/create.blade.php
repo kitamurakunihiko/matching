@@ -6,7 +6,7 @@
 	<div class="container">
 		<div class="row animate-box">
 			<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-				<h2>プロフィール新規作成</h2>
+				<h3><strong>プロフィール新規作成</strong></h3>
 			</div>
 		</div>
 	</div>
