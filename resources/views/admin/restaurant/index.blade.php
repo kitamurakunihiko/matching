@@ -10,7 +10,7 @@
   			  @csrf
   			  <h3>お店を探す</h3>
   				<div class="form-group search">
-            <input type="text" placeholder="例)名古屋駅 焼肉" class="form-control" name="keyword" value="{{ old('nickname') }}">
+            <input type="text" placeholder="例)名古屋駅 焼肉" class="form-control" name="keyword" value="{{ old('keyword') }}">
             <button class="btnn btn-primary" type="submit">検索</button>
           </div>  
         </form>

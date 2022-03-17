@@ -22,6 +22,7 @@ class RestaurantController extends Controller
 
     public function search(Request $request)
     {
+      // dd($request);
       // インスタンス生成
       $client = new Client();
 

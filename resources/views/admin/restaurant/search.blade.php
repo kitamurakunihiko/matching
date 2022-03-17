@@ -10,7 +10,7 @@
   			  @csrf
   			  <h3>お店を探す</h3>
   				<div class="form-group search">
-            <input type="text" placeholder="例)名古屋駅 焼肉" class="form-control" name="keyword" value="{{ old('nickname') }}">
+            <input type="text" placeholder="例)名古屋駅 焼肉" class="form-control" name="keyword" value="{{ old('keyword') }}">
             <button class="btnn btn-primary" type="submit">検索</button>
           </div>  
         </form>
@@ -25,35 +25,24 @@
     			</div>
     			<div class="row">
     			  @if(!empty($restaurants['results_returned']))
-            @for ($i = 0; $i < $restaurants['results_returned']; $i++)
-    				<div class="col-md-4">
-    					<div class="fh5co-portfolio animate-box">
-    						<a href="{{ $restaurants['shop'][$i]['urls']['pc'] }}">
-    							<div class="portfolio-entry" style="background-image: url({{ $restaurants['shop'][$i]['photo']['pc']['l'],$restaurants['shop'][$i]['photo']['mobile']['l'] }});"></div>
-    							<div class="portfolio-text">
-    								<h3 class="shop-name">{{ $restaurants['shop'][$i]['name'] }}</h3>
-    							</div> 
-    						</a>
-    					</div>
-    				</div>
-    				@endfor
+              @for ($i = 0; $i < $restaurants['results_returned']; $i++)
+        				<div class="col-md-4">
+        					<div class="fh5co-portfolio animate-box">
+        						<a href="{{ $restaurants['shop'][$i]['urls']['pc'] }}">
+        							<div class="portfolio-entry" style="background-image: url({{ $restaurants['shop'][$i]['photo']['pc']['l'],$restaurants['shop'][$i]['photo']['mobile']['l'] }});"></div>
+        							<div class="portfolio-text">
+        								<h3 class="shop-name">{{ $restaurants['shop'][$i]['name'] }}</h3>
+        							</div> 
+        						</a>
+        					</div>
+        				</div>
+      				@endfor
+    				@else
+      				<div id="fh5co-contact">
+      				 <p class="text-center">検索結果がありません</p>
+      				</div>
     				@endif
-    				
-      
-      
-      
-      <table border="1">
-        <tr>
-          <th>店舗名</th>
-          <th>営業時間</th>
-        </tr>
-        @if(!empty($restaurants['results_returned']))
-        @for ($i = 0; $i < $restaurants['results_returned']; $i++)
-          <tr>
-            <td><a href="{{ $restaurants['shop'][$i]['urls']['pc'] }}">{{ $restaurants['shop'][$i]['name'] }}</a></td>
-            <td>{{ $restaurants['shop'][$i]['open'] }}</td>
-          </tr>
-        @endfor
-        @endif
-      </table>
+    			</div>
+    		</div>
+    	</div>
 @endsection
